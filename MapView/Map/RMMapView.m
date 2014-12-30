@@ -1922,7 +1922,7 @@
 
         if (anAnnotation.layer.canShowCallout && anAnnotation.title)
         {
-            _currentCallout = [SMCalloutView platformCalloutView];
+            _currentCallout = [SMCalloutView new];
 
             if (RMPostVersion7)
                 _currentCallout.tintColor = self.tintColor;
