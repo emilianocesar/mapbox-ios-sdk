@@ -1937,33 +1937,32 @@
                 
                 _currentCallout.calloutOffset = anAnnotation.layer.calloutOffset;
                 
-                if (anAnnotation.layer.leftCalloutAccessoryView)
-                {
-                    if ([anAnnotation.layer.leftCalloutAccessoryView isKindOfClass:[UIControl class]])
-                        [anAnnotation.layer.leftCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
-                    
-                    _currentCallout.leftAccessoryView = anAnnotation.layer.leftCalloutAccessoryView;
-                }
-                
-                if (anAnnotation.layer.rightCalloutAccessoryView)
-                {
-                    if ([anAnnotation.layer.rightCalloutAccessoryView isKindOfClass:[UIControl class]])
-                        [anAnnotation.layer.rightCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
-                    
-                    _currentCallout.rightAccessoryView = anAnnotation.layer.rightCalloutAccessoryView;
-                }
-                
-                if (anAnnotation.layer.calloutContentView) {
-                    if ([anAnnotation.layer.calloutContentView isKindOfClass:[UIControl class]])
-                        [anAnnotation.layer.calloutContentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
-                    
-                    _currentCallout.contentView = anAnnotation.layer.calloutContentView;
-                }
-                
                 _currentCallout.permittedArrowDirection = SMCalloutArrowDirectionDown;
 
             }
 
+            if (anAnnotation.layer.leftCalloutAccessoryView)
+            {
+                if ([anAnnotation.layer.leftCalloutAccessoryView isKindOfClass:[UIControl class]])
+                    [anAnnotation.layer.leftCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
+                
+                _currentCallout.leftAccessoryView = anAnnotation.layer.leftCalloutAccessoryView;
+            }
+            
+            if (anAnnotation.layer.rightCalloutAccessoryView)
+            {
+                if ([anAnnotation.layer.rightCalloutAccessoryView isKindOfClass:[UIControl class]])
+                    [anAnnotation.layer.rightCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
+                
+                _currentCallout.rightAccessoryView = anAnnotation.layer.rightCalloutAccessoryView;
+            }
+            
+            if (anAnnotation.layer.calloutContentView) {
+                if ([anAnnotation.layer.calloutContentView isKindOfClass:[UIControl class]])
+                    [anAnnotation.layer.calloutContentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
+                
+                _currentCallout.contentView = anAnnotation.layer.calloutContentView;
+            }
 
 
             _currentCallout.delegate = self;
