@@ -1922,7 +1922,9 @@
 
         if (anAnnotation.layer.canShowCallout && anAnnotation.title)
         {
-            _currentCallout = [_delegate mapView:self calloutViewForAnnotation:anAnnotation];
+            if ([_delegate respondsToSelector:@selector(mapView:calloutViewForAnnotation:)]) {
+                _currentCallout = [_delegate mapView:self calloutViewForAnnotation:anAnnotation];
+            }
             
             if (_currentCallout == nil) {
                 
